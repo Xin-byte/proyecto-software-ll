@@ -25,14 +25,18 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 //Variables Globales
-app.use((req, res, next) =>{
+app.use((req, res, next) => {
+    
     next();
 });
 
 //Rutas
 app.use(require('./routes'));
+app.use(require('./routes/authentication'));
+app.use('/links',require('./routes/links'));
 
 //Archivos publicos
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Inicio de servidor
 app.listen(app.get('port'), () => {
