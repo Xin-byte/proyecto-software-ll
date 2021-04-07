@@ -76,17 +76,22 @@
                                 <th>Apellido Materno</th>
                                 <th>Correo</th>
                                 <th>Telefono</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each listapersonas}}
+                            {{#each personas}}
                                 <tr>
                                     <td> {{DNI}} </td>
                                     <td> {{Nombres}} </td>
                                     <td> {{ApellidoP}} </td>
-                                    <td> {{ApellidoP}} </td>
-                                    <td> {{ApellidoP}} </td>
-                                    <td> {{ApellidoP}} </td>
+                                    <td> {{ApellidoM}} </td>
+                                    <td> {{correo}} </td>
+                                    <td> {{telefono}} </td>
+                                    <td> 
+                                        <a href="/links/edit/{{idpersonas}}" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="/links/delete/{{idpersonas}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    </td>
                                 </tr>
                             {{/each}}
                         </tbody>
@@ -98,6 +103,7 @@
                                 <th>Apellido Materno</th>
                                 <th>Correo</th>
                                 <th>Telefono</th>
+                                <th>Acciones</th>
                             </tr>
                         </tfoot>
                     </table>
