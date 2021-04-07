@@ -14,23 +14,52 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success">Guardar</button>
-      </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/links/add" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">DNI</label>
+                        <input type="text" class="form-control" name="DNI">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombres</label>
+                        <input type="text" class="form-control" name="Nombres">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Apellido Paterno</label>
+                        <input type="text" class="form-control" name="ApellidoP">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Apellido Materno</label>
+                        <input type="text" class="form-control" name="ApellidoM">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Correo</label>
+                        <input type="text" class="form-control" name="correo">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Telefono</label>
+                        <input type="tel" class="form-control" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="container p-4">
@@ -41,48 +70,34 @@
                     <table id="mytable" class="display table" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>DNI</th>
+                                <th>Nombres</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
+                            {{#each listapersonas}}
+                                <tr>
+                                    <td> {{DNI}} </td>
+                                    <td> {{Nombres}} </td>
+                                    <td> {{ApellidoP}} </td>
+                                    <td> {{ApellidoP}} </td>
+                                    <td> {{ApellidoP}} </td>
+                                    <td> {{ApellidoP}} </td>
+                                </tr>
+                            {{/each}}
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>DNI</th>
+                                <th>Nombres</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
                             </tr>
                         </tfoot>
                     </table>
