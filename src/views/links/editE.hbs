@@ -3,26 +3,22 @@
         <div class="col-md-5 m-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/links/edit/{{datos.idpersona}}" method="POST">
+                    <form action="/links/editE/{{datos.idpersonas}}" method="POST">
                         <div class="form-group">
                             <label for="exampleInputEmail1">DNI</label>
-                            <input type="text" value="{{datos.dni}}" class="form-control" name="DNI">
+                            <input type="text" value="{{datos.DNI}}" class="form-control" name="DNI">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nombres</label>
-                            <input type="text" value="{{datos.nombres}}" class="form-control" name="Nombres">
+                            <input type="text" value="{{datos.Nombres}}" class="form-control" name="Nombres">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Apellido Paterno</label>
-                            <input type="text" value="{{datos.apellidoP}}" class="form-control" name="ApellidoP">
+                            <input type="text" value="{{datos.ApellidoP}}" class="form-control" name="ApellidoP">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Apellido Materno</label>
-                            <input type="text" value="{{datos.apellidoM}}" class="form-control" name="ApellidoM">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Dirección</label>
-                            <input type="text" value="{{datos.direccion}}" class="form-control" name="direccion">
+                            <input type="text" value="{{datos.ApellidoM}}" class="form-control" name="ApellidoM">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Correo</label>
@@ -31,6 +27,14 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Telefono</label>
                             <input type="tel" value="{{datos.telefono}}" class="form-control" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Correo</label>
+                            <input type="text" value="{{datos.correo}}" class="form-control" name="correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Correo</label>
+                            <input type="text" value="{{datos.correo}}" class="form-control" name="correo">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary">

@@ -1,0 +1,104 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <button type="button" class="btn btn-success rounded-pill" data-toggle="modal" data-target="#exampleModal">
+                        Agregar <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/links/sales" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Monto</label>
+                        <input type="text" class="form-control" name="monto" required placeholder="Ingrese monto">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Cliente</label>
+                        <select class="form-control" name="fk_cliente" id="" >
+                            {{#each client}}
+                            <option value="{{fk_cliente}}">{{nombres}} {{apellidos}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Empleado</label>
+                        <select class="form-control" name="fk_vendedor" id="">
+                            <option value="{{usuario.idpersona}}">{{usuario.nombres}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="estado" required value="1" hidden>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">
+                            Guardar
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="mytable" class="display table text-white" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>trabajador</th>
+                                    <th>Monto</th>
+                                    <th>Fecha del Pedido</th>
+                                    <th>Ver pedido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each sales}}
+                                <tr>
+                                    <td> {{cliented}} </td>
+                                    <td> {{empleadod}} </td>
+                                    <td> {{monto}} </td>
+                                    <td> {{timeago fecha_ped}} </td>
+                                    <td class="text-center">
+                                        <a href="/links/salesDetail/{{idpedido}}" class="btn btn-info"><i class="fas fa-cart-plus"></i></i></a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>trabajador</th>
+                                    <th>Monto</th>
+                                    <th>Fecha del Pedido</th>
+                                    <th>Ver pedido</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

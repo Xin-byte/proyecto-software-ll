@@ -1,0 +1,28 @@
+<div class="modal fade" id="confirn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Poner 0</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Desea Confirmar la venta, si confirma la venta no podra realizar mas cambios.</p>
+                <form action="/partials/modal/{{estado.idpedido}}" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="estado" required value="0" hidden>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">
+                            <i class="far fa-check-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

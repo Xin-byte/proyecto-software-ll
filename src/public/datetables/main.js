@@ -19,6 +19,9 @@ $(document).ready(function() {
                 "sPrevious": "Anterior"
 			},
 			"sProcessing":"Procesando...",
-        }
+        },
+        "scrollX": true,
+        stateSave: true,
+        "order": [[ 1, "desc" ]]
     });     
 });

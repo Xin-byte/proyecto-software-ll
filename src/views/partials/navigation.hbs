@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/links/home">Lucero</a>
+  <a class="navbar-brand animate__animated animate__zoomIn" href="/">
+    Lucero
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,28 +9,40 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       {{#if user}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/home"><i class="fas fa-home"></i></a>
+      </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/links/add">Empleados</a>
-          <a class="dropdown-item" href="#">Clientes</a>
+          {{#if user.tipo_usuario}}
+            <a class="dropdown-item" href="/links/employee">Empleados</a>
+          {{/if}} 
+          <a class="dropdown-item" href="/links/add">Clientes</a>
+          <a class="dropdown-item" href="/links/product">Productos</a>
+          <a class="dropdown-item" href="/links/servis">Servicios</a>
+          <a class="dropdown-item" href="/links/sales">Ventas</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Por implementar</a>
         </div>
-      </li>  
-      <li class="nav-item active">
-        <a class="nav-link" href="/links/home"><i class="fas fa-home"></i><span class="sr-only">(current)</span></a>
       </li>
-     <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="#">Otros</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/profile">Perfil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/logout">Cerrar Sesion</a>
+        <a class="btn btn-danger" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <a class="btn btn-success" href="/signin">
+          <span>Iniciar Sesion <i class="fas fa-sign-in-alt"></i></span>
+        </a>
       </li>
       {{/if}}
     </ul>

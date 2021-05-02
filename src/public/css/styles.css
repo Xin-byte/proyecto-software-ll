@@ -1,3 +1,26 @@
-html{
-    font-family: 'Oswald', sans-serif;
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #b92b27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#logo{
+    background-image: url("/img/lucero.png");
+    background-size: cover;
+}
+#mainLogo {
+    display: inline-block;
+    margin: 0 0.5rem;
+  
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+}
+#logoLogin > img{
+    display:block;
+    margin:auto;
+    background-image: url('/img/logoLogin.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 12rem;
 }

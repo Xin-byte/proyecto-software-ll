@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{!Google Fonts(Fuente del proyecto)}}
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     {{!Boot estrap Version v4}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     {{!Iconos con Font Awesome}}
@@ -16,6 +17,12 @@
     <link rel="stylesheet" type="text/css" href="/datetables/datatables.min.css"/>
     {{!Data Tables estilos BootStrap4 CSS}}
     <link rel="stylesheet" href="/datetables/DataTables-1.10.24/css/dataTables.bootstrap4.min.css">
+    {{!Animate css}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    {{!Carrucel SCSS}}
+    <link rel="stylesheet" href="/scss/stylescarrucel.css">
+    {{!404 CSS}}
+    <link rel="stylesheet" href="/css/style404.css">
     <title>Multiservisios lucero</title>
 </head>
 <body>
@@ -24,8 +31,8 @@
 
     {{> message}}
 
-
     {{{ body }}}
+
 
     {{!Pooper}}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -34,5 +41,14 @@
     <script type="text/javascript" src="/datetables/datatables.min.js"></script>
     {{!Data Tables Español}}
     <script type="text/javascript" src="/datetables/main.js"></script>
+    {{!}}
+    <script type="text/javascript" src="/carrucel/carrucel.js"></script>
+    <script text="text/javascript">
+        $(document).ready(function() {
+            $('.badge badge-success').change(function(){
+                console.log('enviando');
+            });
+        });
+    </script>   
 </body>
 </html>

@@ -13,10 +13,12 @@ passport.use('local.signin', new LocalStrategy({
     if (rows.length > 0) {
         const user = rows[0];
         const validPassword = await helpers.matchPassword(contraseña, user.contraseña);
-        if (validPassword) {
+        if (validPassword & user.estado) {
             done(null, user, req.flash('guardado','Bienvenido '+user.usuario))
+        }else if (user.estado == false){
+            done(null, false, req.flash('message','Usuario inactivo'));
         }else{
-            done(null, false, req.flash('message','Contrseña incorrecta'));
+            done(null, false, req.flash('message','Contraseña incorrecta'));
         }
     }else{
         return done(null, false, req.flash('message','El usuario no existe'));
@@ -35,16 +37,19 @@ passport.use('local.signup', new LocalStrategy({
     usernameField: 'usuario',
     passwordField: 'contraseña',
     passReqToCallback: true
-}, async (req, usuario, contraseña, done) => {
-    
+}, async (req, usuario, contraseña,done) => {
+    const {tipo_usuario,fk_vendedor} = req.body;
     const newUser = {
         usuario,
-        contraseña
+        contraseña,
+        tipo_usuario,
+        fk_vendedor
     };
+    //console.log(newUser);
     newUser.contraseña = await helpers.encryptPassword(contraseña);
     const result = await pool.query('INSERT INTO credencial SET ?', [newUser]);
     newUser.id = result.insertId;
-    console.log(newUser.id);
+    //console.log(newUser.id);
     return done(null, newUser);
 }));
 

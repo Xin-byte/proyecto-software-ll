@@ -1,0 +1,79 @@
+// Cards Carousel
+// ----------------------------------------------
+
+.icon-cards {
+  position: relative;
+	width: 60vw;
+	height: 40vw;
+  max-width: 380px;
+  max-height: 250px;
+  margin: 0;
+  color: white;
+	perspective: 1000px;
+  transform-origin: center;
+
+	// This is the element that rotates with the animation
+
+	&__content {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+    transform-origin: center;
+		transform-style: preserve-3d;
+		transform: translateZ(-30vw) rotateY(0);
+		animation: carousel 18s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    
+    &.step-animation {
+      animation: carousel 15s infinite steps(1) forwards;
+    }
+	}
+
+	// Individual cards
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 60vw;
+    height: 40vw;
+    max-width: 380px;
+    max-height: 250px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+    border-radius: 6px;
+    transform-origin: center;
+
+    &:nth-child(1) {
+      background: #424242; 
+      transform: rotateY(0) translateZ(25vw);
+    }
+
+    &:nth-child(2) {
+      background: #424242;
+      transform: rotateY(72deg) translateZ(25vw);
+    }
+
+    &:nth-child(3) {
+      background: #424242;
+      transform: rotateY(144deg) translateZ(25vw);
+    }
+    &:nth-child(4) {
+      background: #424242;
+      transform: rotateY(216deg) translateZ(25vw);
+    }
+    &:nth-child(5) {
+      background: #424242;
+      transform: rotateY(288deg) translateZ(25vw);
+    }
+  }
+}
+// Carousel animation
+@keyframes carousel {
+  0%,  11.67%  { transform: translateZ(-30vw) rotateY(0); }
+  17.67%, 29.34%  { transform: translateZ(-30vw) rotateY(-72deg); }
+  35.34%, 47.01%  { transform: translateZ(-30vw) rotateY(-144deg); }
+  53.01%, 64.68% { transform: translateZ(-30vw) rotateY(-216deg); }
+  70.68%, 82.35% { transform: translateZ(-30vw) rotateY(-288deg); }
+  88.35%, 100% { transform: translateZ(-30vw) rotateY(-360deg); }
+}

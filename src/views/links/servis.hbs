@@ -44,7 +44,8 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" required placeholder="Direccion">
+                        <input type="text" class="form-control" name="direccion" required
+                            placeholder="Direccion">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Correo</label>
@@ -78,41 +79,30 @@
                         <table id="mytable" class="display table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>DNI</th>
-                                    <th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>Correo</th>
-                                    <th>Telefono</th>
-                                    <th>Dirección</th>
+                                    <th>Nombre Servicio</th>
+                                    <th>Descripción</th>
+                                    <th>Precio C/U</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each personas}}
+                                {{#each servis}}
                                 <tr>
-                                    <td> {{dni}} </td>
-                                    <td> {{nombres}} </td>
-                                    <td> {{apellidos}} </td>
-                                    <td> {{correo}} </td>
-                                    <td> {{telefono}} </td>
-                                    <td> {{direccion}} </td>
+                                    <td> {{nom_ser}} </td>
+                                    <td> {{precio}} </td>
+                                    <td> {{descripcion}} </td>
                                     <td>
-                                        <a href="/links/edit/{{idpersona}}" class="btn btn-secondary"><i
-                                                class="fas fa-pencil-alt"></i></a>
-                                        <a href="/links/delete/{{idpersona}}" class="btn btn-danger"><i
-                                                class="fas fa-trash-alt"></i></a>
+                                        <a href="/links/edit/{{idservicio}}" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="/links/delete/{{idservicio}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 {{/each}}
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>DNI</th>
-                                    <th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>Correo</th>
-                                    <th>Telefono</th>
-                                    <th>Dirección</th>
+                                    <th>Nombre Servicio</th>
+                                    <th>Descripción</th>
+                                    <th>Precio C/U</th>
                                     <th>Acciones</th>
                                 </tr>
                             </tfoot>

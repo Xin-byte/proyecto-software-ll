@@ -53,8 +53,15 @@ app.use((req, res, next) => {
 //Rutas
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
-app.use('/links',require('./routes/links'));
-
+app.use('/links',require('./routes/client'));
+app.use('/links',require('./routes/employee'));
+app.use('/links',require('./routes/product'));
+app.use('/links',require('./routes/services'));
+app.use('/links',require('./routes/sales'));
+app.use('/links',require('./routes/addProduct'));
+app.use('/links',require('./routes/salesDetail'));
+app.use('/partials',require('./routes/salesDetail'));
+//app.use('/links',require('./routes/report'));
 //Archivos publicos
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,0 +1,138 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <button type="button" class="btn btn-success rounded-pill" data-toggle="modal" data-target="#exampleModal">
+                        Agregar <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="float-right">
+                        <a href="/links/product" class="btn btn-primary rounded-pill"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/links/addProduct/{{categoria.id_categoria}}" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre Producto</label>
+                        <input type="text" class="form-control" name="nom_pro" required placeholder="Ingrese nombre del producto">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Descripción</label>
+                        <input type="text" class="form-control" name="descrip" required placeholder="Ingrese una descripción">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Precio</label>
+                        <input type="text" class="form-control" name="precio" required placeholder="Ingrese precio Unitario">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Stock</label>
+                        <input type="text" class="form-control" name="stock" required placeholder="Ingrese la cantidad">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">
+                            Guardar
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="mytable" class="text-white table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nombre Producto</th>
+                                    <th>Descripción</th>
+                                    <th>Código</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each product}}
+                                <tr>
+                                    <td> {{nom_pro}} </td>
+                                    <td> {{descrip}} </td>
+                                    <td> {{cod}} </td>
+                                    <td> {{precio}} </td>
+                                    <td> {{stock}} </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success rounded-pill" data-toggle="modal" data-target="#addstock{{idproductos}}">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <!-- Modal AGREGAR STOCK -->
+                                        <div class="modal fade" id="addstock{{idproductos}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title text-body" id="exampleModalLabel">Agregar Stock {{nom_pro}}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="/links/addStock/{{idproductos}}" method="POST">
+                                                            <div class="form-group">
+                                                                <input type="number" class="form-control" name="stock" min="0" required
+                                                                    placeholder="Ingrese el Stock">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button class="btn btn-success">
+                                                                    Guardar
+                                                                </button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                                    Cerrar
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="/links/editP/{{idproductos}}" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="/links/deletePRO/{{idproductos}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Nombre Producto</th>
+                                    <th>Descripción</th>
+                                    <th>Código</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

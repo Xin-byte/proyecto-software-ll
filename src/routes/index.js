@@ -1,8 +1,10 @@
 const express = require('express');
 const routes = express.Router();
 
-routes.get('/', (req, res)=> {
-    res.send('Ya esta corriendo')
+const { isNotLoggedIn } = require('../lib/auth');
+
+routes.get('/', isNotLoggedIn, (req, res)=> {
+    res.render('index');
 });
 
 module.exports = routes;

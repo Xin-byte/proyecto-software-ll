@@ -1,0 +1,174 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    {{#if estado.estado}}
+                    <button type="button" class="btn btn-success rounded-pill" data-toggle="modal"
+                        data-target="#exampleModal">
+                        Agregar <i class="fas fa-plus"></i>
+                    </button>
+                    {{else}}
+                    <button type="button" class="btn btn-danger rounded-pill">
+                        inactivo
+                    </button>
+                    {{/if}}
+                    <div class="float-right">
+                        {{#if estado.estado}}
+                        <button type="button" class="btn btn-primary rounded-pill" data-toggle="modal"
+                            data-target="#delete">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                        </button>
+                        {{else}}
+                        <a href="/links/sales" class="btn btn-primary rounded-pill">
+                            <i class="fas fa-arrow-alt-circle-left"></i>
+                        </a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal DELETE -->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Esta seguro que desea continuar, se eliminara el pedido</p>
+                <div class="form-group">
+                    <a href="/links/deleteC/{{estado.idpedido}}" class="btn btn-danger">
+                        <i class="fas fa-window-close"></i>
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/links/salesDetail/{{estado.idpedido}}" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Selecione Producto</label>
+                        <select class="form-control" name="fk_idproductos" id="" >
+                            {{#each product}}
+                            <option value="{{idproductos}}">{{nom_pro}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Cantidad</label>
+                        <input type="text" class="form-control" name="cantidad" required
+                            placeholder="Ingrese una descripción">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">
+                            Guardar
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="mytable" class="display table text-white" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nombre Producto</th>
+                                    <th>Descripción</th>
+                                    <th>Código</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each detail}}
+                                <tr>
+                                    <td> {{nom_pro}} </td>
+                                    <td> {{descrip}} </td>
+                                    <td> {{cod}} </td>
+                                    <td> {{precio}} </td>
+                                    <td> {{cantidad}} </td>
+                                    {{#if estado}}
+                                    <td class="text-center">
+                                        <a href="/links/deletePD/{{id_detalle_pedido}}&{{idpedido}}" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                    {{else}}
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger rounded-pill">
+                                            inactivo
+                                        </button>
+                                    </td>
+                                    {{/if}}
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Nombre Producto</th>
+                                    <th>Descripción</th>
+                                    <th>Código</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    {{#if estado.estado}}
+                    <button type="button" class="btn btn-success rounded-pill" data-toggle="modal"
+                        data-target="#confirn">
+                        <i class="far fa-check-circle"></i> Confirmar
+                    </button>
+                    {{else}}
+                    <button type="button" class="btn btn-danger rounded-pill">
+                        inactivo
+                    </button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal INACTIVO-->
+{{> modal }}
